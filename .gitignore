@@ -1,0 +1,11 @@
+/Build/
+/Configuration/
+/Data/
+/Packages/
+!/Packages/Application/Peytz.Vote/*
+/Web/
+/bin/
+/Readme.rst
+/Upgrading.rst
+/flow
+/flow.bat

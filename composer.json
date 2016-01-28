@@ -1,0 +1,38 @@
+{
+    "name": "typo3/flow-base-distribution",
+    "description": "Flow Base Distribution",
+    "license": "MIT",
+    "support": {
+        "email": "hello@neos.io",
+        "slack": "http://slack.neos.io/",
+        "forum": "https://discuss.neos.io/",
+        "wiki": "https://discuss.neos.io/c/the-neos-project/project-documentation",
+        "issues": "https://jira.neos.io/browse/FLOW",
+        "docs": "http://flowframework.readthedocs.org/",
+        "source": "https://github.com/neos/flow-base-distribution"
+    },
+    "config": {
+        "vendor-dir": "Packages/Libraries",
+        "bin-dir": "bin"
+    },
+    "require": {
+        "typo3/flow": "~3.1.0",
+        "typo3/welcome": "~3.1.0"
+    },
+    "require-dev": {
+        "typo3/kickstart": "~3.1.0",
+        "typo3/buildessentials": "3.1.x-dev",
+        "phpunit/phpunit": "~4.8 || ~5.0",
+        "mikey179/vfsstream": "~1.6",
+        "flowpack/behat": "dev-master"
+    },
+    "suggest": {
+        "ext-pdo_sqlite": "For running functional tests out-of-the-box this is required"
+    },
+    "scripts": {
+        "post-update-cmd": "TYPO3\\Flow\\Composer\\InstallerScripts::postUpdateAndInstall",
+        "post-install-cmd": "TYPO3\\Flow\\Composer\\InstallerScripts::postUpdateAndInstall",
+        "post-package-update": "TYPO3\\Flow\\Composer\\InstallerScripts::postPackageUpdateAndInstall",
+        "post-package-install": "TYPO3\\Flow\\Composer\\InstallerScripts::postPackageUpdateAndInstall"
+    }
+}
