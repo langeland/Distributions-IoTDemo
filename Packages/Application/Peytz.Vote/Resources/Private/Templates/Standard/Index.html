@@ -1,11 +1,28 @@
 <f:layout name="Default"/>
 
-<f:section name="Title">Index view of Standard controller</f:section>
+<f:section name="Title">How happy are you today ??</f:section>
 
 <f:section name="Content">
+    <f:validation.results>
+        <f:if condition="{validationResults.flattenedErrors}">
+            <ul class="errors">
+                <f:for each="{validationResults.flattenedErrors}" as="errors" key="propertyPath">
+                    <li>{propertyPath}
+                        <ul>
+                            <f:for each="{errors}" as="error">
+                                <li>{error.code}: {error}</li>
+                            </f:for>
+                        </ul>
+                    </li>
+                </f:for>
+            </ul>
+        </f:if>
+    </f:validation.results>
+
     <f:form action="register" objectName="newVote">
-        <label for="value">Value</label>
+        <label for="value">Value (0-9)</label>
         <f:form.textfield property="value" id="value"/>
         <f:form.submit value="Vote!"/>
     </f:form>
+
 </f:section>

@@ -11,6 +11,12 @@ use Peytz\Vote\Domain\Model\Vote;
 class StandardController extends \TYPO3\Flow\Mvc\Controller\ActionController
 {
 
+    /**
+     * @var string
+     */
+    protected $viewFormatToObjectNameMap = array(
+        'json' => 'TYPO3\Flow\Mvc\View\JsonView'
+    );
 
     /**
      * @var \Peytz\Vote\Domain\Repository\VoteRepository
@@ -78,8 +84,7 @@ class StandardController extends \TYPO3\Flow\Mvc\Controller\ActionController
         }
         $voteResult = $voteSum / $votes->count();
 
-        print($voteResult);
-        die();
+        $this->view->assign('value', array('status' => 200, 'result' => $voteResult));
     }
 
 

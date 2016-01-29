@@ -15,7 +15,9 @@ class Vote
 {
     /**
      * @var integer
-     * @Flow\Validate(type="NumberRange", minimum=0, maximum=9)
+     * @Flow\Validate(type="NotEmpty")
+     * @Flow\Validate(type="Integer")
+     * @Flow\Validate(type="NumberRange", options={"minimum": 0, "maximum": 9})
      */
     protected $value;
 

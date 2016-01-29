@@ -15,8 +15,15 @@
     "vendor-dir": "Packages/Libraries",
     "bin-dir": "bin"
   },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/langeland/Langeland.Liquid"
+    }
+  ],
   "require": {
-    "typo3/flow": "~3.1.0"
+    "typo3/flow": "~3.1.0",
+    "langeland/liquid": "dev-master"
   },
   "require-dev": {
     "typo3/kickstart": "~3.1.0",

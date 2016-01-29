@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "1dcb2335d59e851f736de0b38c4339c0",
-    "content-hash": "b10b12742d7420df4b4b88b4f619e70c",
+    "hash": "2e485d04c219968a5a0a630fa13066f4",
+    "content-hash": "1ec5b2f1b3ede1dbc324cb25cbd24c27",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -617,6 +617,36 @@
             "time": "2015-08-31 13:19:01"
         },
         {
+            "name": "langeland/liquid",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/langeland/Langeland.Liquid.git",
+                "reference": "f0db7731d2b7de64578d2af099d737ab1d858a1d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/langeland/Langeland.Liquid/zipball/f0db7731d2b7de64578d2af099d737ab1d858a1d",
+                "reference": "f0db7731d2b7de64578d2af099d737ab1d858a1d",
+                "shasum": ""
+            },
+            "require": {
+                "typo3/flow": "*"
+            },
+            "type": "typo3-flow-package",
+            "autoload": {
+                "psr-0": {
+                    "Langeland\\Liquid": "Classes"
+                }
+            },
+            "description": "Add description here",
+            "support": {
+                "source": "https://github.com/langeland/Langeland.Liquid/tree/master",
+                "issues": "https://github.com/langeland/Langeland.Liquid/issues"
+            },
+            "time": "2014-10-25 14:17:36"
+        },
+        {
             "name": "neos/composer-plugin",
             "version": "1.0.4",
             "source": {
@@ -651,16 +681,16 @@
         },
         {
             "name": "paragonie/random_compat",
-            "version": "1.1.5",
+            "version": "1.1.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/paragonie/random_compat.git",
-                "reference": "dd8998b7c846f6909f4e7a5f67fabebfc412a4f7"
+                "reference": "e6f80ab77885151908d0ec743689ca700886e8b0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/dd8998b7c846f6909f4e7a5f67fabebfc412a4f7",
-                "reference": "dd8998b7c846f6909f4e7a5f67fabebfc412a4f7",
+                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/e6f80ab77885151908d0ec743689ca700886e8b0",
+                "reference": "e6f80ab77885151908d0ec743689ca700886e8b0",
                 "shasum": ""
             },
             "require": {
@@ -695,7 +725,7 @@
                 "pseudorandom",
                 "random"
             ],
-            "time": "2016-01-06 13:31:20"
+            "time": "2016-01-29 16:19:52"
         },
         {
             "name": "ramsey/uuid",
@@ -1219,7 +1249,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "langeland/liquid": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
