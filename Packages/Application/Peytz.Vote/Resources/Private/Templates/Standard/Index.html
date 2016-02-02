@@ -19,10 +19,14 @@
         </f:if>
     </f:validation.results>
 
+
+
     <f:form action="register" objectName="newVote">
-        <label for="value">Value (0-9)</label>
-        <f:form.textfield property="value" id="value"/>
-        <f:form.submit value="Vote!"/>
+        <p class="lead">
+        <f:form.textfield property="value" id="value" class="form-control input-lg" placeholder="Value (0-9)"/></p>
+        <p class="lead">
+            <f:form.submit value="Vote!" class="btn btn-lg btn-default"/>
+        </p>
     </f:form>
 
 </f:section>
