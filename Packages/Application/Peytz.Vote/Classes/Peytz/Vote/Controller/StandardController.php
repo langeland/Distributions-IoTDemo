@@ -35,6 +35,7 @@ class StandardController extends \TYPO3\Flow\Mvc\Controller\ActionController
      */
     public function indexAction()
     {
+        /*
         if (!$this->session->isStarted()) {
             $this->session->start();
         }
@@ -43,6 +44,7 @@ class StandardController extends \TYPO3\Flow\Mvc\Controller\ActionController
             $this->addFlashMessage('You can only vote once.');
             $this->redirect('thanks');
         }
+        */
     }
 
     /**
@@ -52,6 +54,8 @@ class StandardController extends \TYPO3\Flow\Mvc\Controller\ActionController
     public function registerAction(Vote $newVote)
     {
         $newVote->setDate(new \DateTime());
+
+        $newVote->setSession($this->session->getId());
         $this->voteRepository->add($newVote);
 
         if (!$this->session->isStarted()) {
@@ -76,13 +80,17 @@ class StandardController extends \TYPO3\Flow\Mvc\Controller\ActionController
      */
     public function resultAction()
     {
-        $votes = $this->voteRepository->findAll();
+        $votes = $this->voteRepository->findActive();
         $voteSum = 0;
+        $voteResult = 5;
         /** @var \Peytz\Vote\Domain\Model\Vote $vote */
         foreach ($votes as $vote) {
             $voteSum = $voteSum + $vote->getValue();
         }
-        $voteResult = $voteSum / $votes->count();
+
+        if($votes->count() > 0){
+            $voteResult = $voteSum / $votes->count();
+        }
 
         $this->view->assign('value', array('status' => 200, 'result' => $voteResult));
     }
