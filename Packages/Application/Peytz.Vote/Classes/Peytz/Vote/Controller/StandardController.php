@@ -53,15 +53,15 @@ class StandardController extends \TYPO3\Flow\Mvc\Controller\ActionController
      */
     public function registerAction(Vote $newVote)
     {
-        $newVote->setDate(new \DateTime());
-
-        $newVote->setSession($this->session->getId());
-        $this->voteRepository->add($newVote);
-
         if (!$this->session->isStarted()) {
             $this->session->start();
         }
-        $this->session->putData('hasVoted', TRUE);
+
+        $newVote->setDate(new \DateTime());
+        $newVote->setSession($this->session->getId());
+        $this->voteRepository->add($newVote);
+
+        $this->session->putData('hasVoted', true);
 
         $this->addFlashMessage('Vote registered.');
         $this->redirect('thanks');
@@ -88,7 +88,7 @@ class StandardController extends \TYPO3\Flow\Mvc\Controller\ActionController
             $voteSum = $voteSum + $vote->getValue();
         }
 
-        if($votes->count() > 0){
+        if ($votes->count() > 0) {
             $voteResult = $voteSum / $votes->count();
         }
 
