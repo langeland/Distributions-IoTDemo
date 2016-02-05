@@ -23,7 +23,7 @@ class VoteRepository extends Repository
         $query = $this->createQuery();
 
         $threshold = new \DateTime();
-        $threshold->modify('-1 hour');
+        $threshold->modify('-5 minutes');
 
 
 
