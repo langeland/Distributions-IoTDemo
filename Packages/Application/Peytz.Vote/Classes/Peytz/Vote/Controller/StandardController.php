@@ -83,6 +83,7 @@ class StandardController extends \TYPO3\Flow\Mvc\Controller\ActionController
         $votes = $this->voteRepository->findActive();
         $voteSum = 0;
         $voteResult = 5;
+        $voteCount = $votes->count();
         /** @var \Peytz\Vote\Domain\Model\Vote $vote */
         foreach ($votes as $vote) {
             $voteSum = $voteSum + $vote->getValue();
@@ -93,6 +94,7 @@ class StandardController extends \TYPO3\Flow\Mvc\Controller\ActionController
         }
 
         $this->view->assign('value', array('status' => 200, 'result' => $voteResult));
+        $this->view->assign('voteCount', $voteCount);
     }
 
 

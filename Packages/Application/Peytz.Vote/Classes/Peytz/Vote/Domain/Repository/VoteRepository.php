@@ -19,20 +19,16 @@ class VoteRepository extends Repository
     /**
      * @return \TYPO3\Flow\Persistence\QueryResultInterface The query result
      */
-    public function findActive(){
+    public function findActive()
+    {
         $query = $this->createQuery();
 
         $threshold = new \DateTime();
-        $threshold->modify('-5 minutes');
-
-
+        $threshold->modify('-60 minutes');
 
         return $query->matching(
             $query->greaterThanOrEqual('date', $threshold)
         )->execute();
-
-
-
     }
 
 }
