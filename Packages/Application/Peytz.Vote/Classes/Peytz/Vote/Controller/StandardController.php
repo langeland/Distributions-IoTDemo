@@ -10,7 +10,6 @@ use Peytz\Vote\Domain\Model\Vote;
 
 class StandardController extends \TYPO3\Flow\Mvc\Controller\ActionController
 {
-
     /**
      * @var string
      */
@@ -57,14 +56,21 @@ class StandardController extends \TYPO3\Flow\Mvc\Controller\ActionController
             $this->session->start();
         }
 
-        $newVote->setDate(new \DateTime());
-        $newVote->setSession($this->session->getId());
-        $this->voteRepository->add($newVote);
+        /** @var \Peytz\Vote\Domain\Model\Vote $vote */
+        if ($vote = $this->voteRepository->findOneBySession($this->session->getId())) {
+            $vote->setDate(new \DateTime());
+            $vote->setValue($newVote->getValue());
+            $this->voteRepository->update($vote);
+        } else {
+
+            $newVote->setDate(new \DateTime());
+            $newVote->setSession($this->session->getId());
+            $this->voteRepository->add($newVote);
+        }
 
         $this->session->putData('hasVoted', true);
-
         $this->addFlashMessage('Vote registered.');
-        $this->redirect('thanks');
+        $this->redirect('index');
     }
 
     /**
@@ -96,6 +102,4 @@ class StandardController extends \TYPO3\Flow\Mvc\Controller\ActionController
         $this->view->assign('value', array('status' => 200, 'result' => $voteResult));
         $this->view->assign('voteCount', $voteCount);
     }
-
-
 }
