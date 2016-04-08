@@ -1,0 +1,11 @@
+<f:layout name="Default" />
+
+<f:section name="Title">Index</f:section>
+
+<f:section name="Content">
+    <ul>
+        <f:for each="{nodes}" as="node">
+            <li>{node.name} [<f:link.action action="show" arguments="{node: node}">Show</f:link.action>]</li>
+        </f:for>
+    </ul>
+</f:section>

@@ -1,0 +1,20 @@
+<f:layout name="Default" />
+
+<f:section name="Title">{node.name}</f:section>
+
+<f:section name="Content">
+
+    <h2>{node.name} ({node.status})</h2>
+
+    <f:form action="update" name="node" object="{node}">
+        <f:form.textfield property="name" /><br />
+
+        <f:form.select property="status" options="{0: 'Green', 1: 'Blue', 2: 'Yellow', 4: 'Red'}"  /> <br />
+        <f:form.submit value="Update status" />
+    </f:form>
+
+    <hr />
+
+    <f:uri.action action="show" arguments="{node: node}" absolute="1" format="json"/>
+
+</f:section>
