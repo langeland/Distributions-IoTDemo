@@ -1,0 +1,29 @@
+-
+  name: 'index'
+  uriPattern: 'list'
+  defaults:
+    '@package':    'Peytz.Silencio'
+    '@controller': 'Standard'
+    '@action':     'index'
+    '@format':     'html'
+
+
+-
+  name: 'show'
+  uriPattern: 'node/{node}(.{@format})'
+  defaults:
+    '@package':    'Peytz.Silencio'
+    '@controller': 'Standard'
+    '@action':     'show'
+    '@format':     'html'
+
+
+-
+  name: 'update'
+  uriPattern: 'node/{node}/update'
+  httpMethods: ['POST']
+  defaults:
+    '@package':    'Peytz.Silencio'
+    '@controller': 'Standard'
+    '@action':     'update'
+    '@format':     'html'
