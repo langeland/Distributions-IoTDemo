@@ -34,12 +34,12 @@ $workflow->beforeStage('switch', array('typo3.surf:shell:unsetResourceLinks'), $
 $workflow->afterStage('switch', 'typo3.surf:typo3:flow:publishresources', $application);
 
 // Clear PHP 5.5+ OpCache (required for php-fpm)
-$resetScriptFilename = 'surf-opcache-reset-' . uniqid() . '.php';
-$workflow->defineTask('fn:clearopcache',
-	'typo3.surf:shell',
-	array('command' => 'cd {currentPath}/Web && echo "<?php if (function_exists(\"opcache_reset\")) { opcache_reset(); } @unlink(__FILE__); echo \"cache cleared\";" > ' . $resetScriptFilename . ' && curl -s "http://kmcpr-live.lombard.pil.dk/' . $resetScriptFilename . '" && rm -rf ' . $resetScriptFilename)
-);
-$workflow->afterStage('switch', array('fn:clearopcache'), $application);
+//$resetScriptFilename = 'surf-opcache-reset-' . uniqid() . '.php';
+//$workflow->defineTask('fn:clearopcache',
+//	'typo3.surf:shell',
+//	array('command' => 'cd {currentPath}/Web && echo "<?php if (function_exists(\"opcache_reset\")) { opcache_reset(); } @unlink(__FILE__); echo \"cache cleared\";" > ' . $resetScriptFilename . ' && curl -s "http://kmcpr-live.lombard.pil.dk/' . $resetScriptFilename . '" && rm -rf ' . $resetScriptFilename)
+//);
+//$workflow->afterStage('switch', array('fn:clearopcache'), $application);
 
 $deployment->setWorkflow($workflow);
 

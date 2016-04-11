@@ -7,6 +7,15 @@
 # Please refer to the Flow manual for possible configuration options.    #
 #                                                                        #
 
+-
+  name: 'PeytzSilencio'
+  uriPattern: '<PeytzSilencioSubroutes>'
+  defaults:
+    '@format': 'html'
+  subRoutes:
+    PeytzSilencioSubroutes:
+      package: Peytz.Silencio
+
 ##
 # Flow subroutes
 #
